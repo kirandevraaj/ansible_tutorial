@@ -1,0 +1,14 @@
+- hosts: all
+  tasks:
+  - name: update repo
+    apt:
+      update_cache: yes
+
+  - name: remove apache2
+    apt:
+      name: apache2
+      state: absent
+  - name: remove php lib support for apache
+    apt:
+      name: libapache2-mod-php
+      state: absent
